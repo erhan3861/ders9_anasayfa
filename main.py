@@ -86,7 +86,7 @@ def login():
         liste = app.place_slaves()
         for l in liste:
             l.destroy()
-        
+        # anasayfayı projeye aktarıyoruz
         anasayfa.make_widgets(app)
                 
     else:
