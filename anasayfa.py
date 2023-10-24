@@ -8,16 +8,16 @@ from PIL import Image, ImageTk
 def make_widgets(root):
     root.title("Anasayfa")
     # Resimleri yükle
-    my_courses_image = Image.open("kurslarım.jpg").resize((310, 310))
+    my_courses_image = Image.open("images/kurslarım.jpg").resize((310, 310))
     my_courses_photo = ImageTk.PhotoImage(my_courses_image)
 
-    other_courses_image = Image.open("diger_kurslar.jpg").resize((310, 310))
+    other_courses_image = Image.open("images/diger_kurslar.jpg").resize((310, 310))
     other_courses_photo = ImageTk.PhotoImage(other_courses_image)
 
-    profile_image = Image.open("profile.jpg").resize((310, 310))
+    profile_image = Image.open("images/profile.jpg").resize((310, 310))
     profile_photo = ImageTk.PhotoImage(profile_image)
 
-    statistics_image = Image.open("istatistik.jpg").resize((310, 310))
+    statistics_image = Image.open("images/istatistik.jpg").resize((310, 310))
     statistics_photo = ImageTk.PhotoImage(statistics_image)
 
     # Başlık etiketi
@@ -27,7 +27,7 @@ def make_widgets(root):
     # Butonlar
     my_courses_button = tk.Button(root, image=my_courses_photo, command=button_click)
     my_courses_button.grid(row=1, column=0, padx=10, pady=10)
-    my_courses_button.image = my_courses_photo
+    my_courses_button.image = my_courses_photo # bu kodu yazmamız zorunlu
 
     my_courses_label = tk.Label(root, text="Kurslarım", font=("Arial", 20))
     my_courses_label.grid(row=2, column=0, padx=10, pady=10)
@@ -52,10 +52,6 @@ def make_widgets(root):
 
     istatistik_label = tk.Label(root, text="İstatistikler", font=("Arial", 20))
     istatistik_label.grid(row=2, column=3, padx=10, pady=10)
-
-    # Label for button click event
-    label = tk.Label(root, text="", font=("Arial", 12))
-    label.grid(row=2, column=0, columnspan=4, pady=10)
 
 # Fonksiyon: Butona tıklandığında yapılacak işlem
 def button_click():
