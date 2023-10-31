@@ -1,12 +1,10 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-# # Ana pencere oluşturma
-# root = tk.Tk()
-# root.title("Online Kurs Yönetim Sistemi")
-
 def make_widgets(root):
     root.title("Anasayfa")
+    root.geometry("1366x768+0+0")
+    
     # Resimleri yükle
     my_courses_image = Image.open("images/kurslarım.jpg").resize((310, 310))
     my_courses_photo = ImageTk.PhotoImage(my_courses_image)
@@ -46,7 +44,7 @@ def make_widgets(root):
     profile_label = tk.Label(root, text="Profilim", font=("Arial", 20))
     profile_label.grid(row=2, column=2, padx=10, pady=10)
 
-    istatistik_button = tk.Button(root, image=statistics_photo, command=button_click())
+    istatistik_button = tk.Button(root, image=statistics_photo, command= lambda : show_stats(root))
     istatistik_button.grid(row=1, column=3, padx=10, pady=10)
     istatistik_button.image = statistics_photo
 
@@ -57,7 +55,12 @@ def make_widgets(root):
 def button_click():
     print("buton click edildi")
 
-# make_widgets(root)
+# ders10 eklendi
+def show_stats(root):
+    # ders 10 da eklendi
+    from stats import UserStatsApp
+    stats_window = tk.Toplevel(root)  # Create a Toplevel window for stats.py
+    app = UserStatsApp(stats_window)
+    root.deiconify() 
 
-# Pencereyi çalıştır
-# root.mainloop()
+
